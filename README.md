@@ -1,6 +1,7 @@
 *Files to look at*:
 
-* [Startup.cs](./CS/WebDashboardDataSources/Startup.cs)
+* [Default.aspx.cs](./CS/WebFormsDashboardDataSources/Default.aspx.cs)
+* [Default.aspx.vb](./VB/WebFormsDashboardDataSources/Default.aspx.vb)
 
 ## How to Register Data Sources for ASP.NET Core Dashboard
 
