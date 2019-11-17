@@ -64,7 +64,7 @@ namespace WebFormsDashboardDataSources {
             DashboardObjectDataSource objDataSource = new DashboardObjectDataSource("Object Data Source");
             dataSourceStorage.RegisterDataSource("objDataSource", objDataSource.SaveToXml());
 
-            // Registers a EF Core data source.
+            // Registers an Entity Framework data source.
             DashboardEFDataSource efDataSource = new DashboardEFDataSource("EF Core Data Source");
             efDataSource.ConnectionParameters = new EFConnectionParameters(typeof(OrdersContext));
             dataSourceStorage.RegisterDataSource("efDataSource", efDataSource.SaveToXml());
