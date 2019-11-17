@@ -3,7 +3,7 @@
 * [Default.aspx.cs](./CS/WebFormsDashboardDataSources/Default.aspx.cs)
 * [Default.aspx.vb](./VB/WebFormsDashboardDataSources/Default.aspx.vb)
 
-## How to Register Data Sources for ASP.NET Core Dashboard Control
+## How to Register Data Sources for ASP.NET Web Forms Dashboard Control
 
 The following example displays how to provide a Web Dashboard with a set of predefined data sources available for end users.
 
