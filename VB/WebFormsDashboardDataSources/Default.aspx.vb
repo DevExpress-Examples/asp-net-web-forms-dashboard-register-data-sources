@@ -63,7 +63,7 @@ Namespace WebFormsDashboardDataSources
 			Dim objDataSource As New DashboardObjectDataSource("Object Data Source")
 			dataSourceStorage.RegisterDataSource("objDataSource", objDataSource.SaveToXml())
 
-			' Registers a EF Core data source.
+			' Registers an Entity Framework data source.
 			Dim efDataSource As New DashboardEFDataSource("EF Core Data Source")
 			efDataSource.ConnectionParameters = New EFConnectionParameters(GetType(OrdersContext))
 			dataSourceStorage.RegisterDataSource("efDataSource", efDataSource.SaveToXml())
