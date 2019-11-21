@@ -72,7 +72,7 @@ namespace WebFormsDashboardDataSources {
             // Registers an Extract data source.
             DashboardExtractDataSource extractDataSource = new DashboardExtractDataSource("Extract Data Source");
             extractDataSource.Name = "Extract Data Source";
-            extractDataSource.FileName = @"Data/SalesPersonExtract.dat";
+            extractDataSource.FileName = @"App_Data/SalesPersonExtract.dat";
             dataSourceStorage.RegisterDataSource("extractDataSource ", extractDataSource.SaveToXml());
 
             // Registers a JSON data source from URL.
