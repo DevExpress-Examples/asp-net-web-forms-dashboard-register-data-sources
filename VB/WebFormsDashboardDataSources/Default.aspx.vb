@@ -50,8 +50,8 @@ Namespace WebFormsDashboardDataSources
 
 			' Registers an OLAP data source.
 			Dim olapDataSource As New DashboardOlapDataSource("OLAP Data Source", "olapConnection")
-			DashboardOlapDataSource.OlapDataProvider = OlapDataProviderType.Xmla
-			dataSourceStorage.RegisterDataSource("olapDataSource", olapDataSource.SaveToXml())
+            DashboardOlapDataSource.OlapDataProvider = OlapDataProviderType.Adomd
+            dataSourceStorage.RegisterDataSource("olapDataSource", olapDataSource.SaveToXml())
 
 			' Registers an Excel data source.
 			Dim excelDataSource As New DashboardExcelDataSource("Excel Data Source")
