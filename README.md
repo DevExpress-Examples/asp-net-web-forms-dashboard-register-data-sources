@@ -26,4 +26,4 @@ The [ASPxDashboard.SetDataSourceStorage](https://docs.devexpress.com/Dashboard/D
 ## See Also
 
 - [How to Register Data Sources for ASP.NET Core Dashboard Control](https://github.com/DevExpress-Examples/asp-net-core-dashboard-register-data-sources)
-- [How to Register Data Sources for ASP.NET MVC Forms Dashboard Extension](https://github.com/DevExpress-Examples/asp-net-mvc-dashboard-register-data-sources)
+- [How to Register Data Sources for ASP.NET MVC Dashboard Extension](https://github.com/DevExpress-Examples/asp-net-mvc-dashboard-register-data-sources)
