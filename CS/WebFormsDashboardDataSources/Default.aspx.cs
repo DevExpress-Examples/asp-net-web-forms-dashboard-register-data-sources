@@ -26,14 +26,41 @@ namespace WebFormsDashboardDataSources {
             ASPxDashboard1.ConfigureDataConnection += ASPxDashboard1_ConfigureDataConnection;
 
             AccessSettings.DataResources.TrySetRules(UrlAccessRule.Allow(),DirectoryAccessRule.Allow());
+
+            ASPxDashboard1.DataLoading += ASPxDashboard1_DataLoading;
+        }
+
+        private void ASPxDashboard1_DataLoading(object sender, DataLoadingWebEventArgs e) {
+            if(e.DataSourceName.Contains("Object Data Source")) {
+                e.Data = Invoices.CreateData();
+            }
         }
 
         private void ASPxDashboard1_ConfigureDataConnection(object sender, ConfigureDataConnectionWebEventArgs e) {
-            if(e.ConnectionName == "olapConnection") {
+            switch(e.ConnectionName) {
+
+                case "olapConnection":
                 OlapConnectionParameters olapParams = new OlapConnectionParameters();
                 olapParams.ConnectionString = "Provider=MSOLAP;Data Source=http://demos.devexpress.com/Services/OLAP/msmdpump.dll;"
                     + "Initial catalog=Adventure Works DW Standard Edition;Cube name=Adventure Works;Query Timeout=100;";
                 e.ConnectionParameters = olapParams;
+                break;
+
+                case "jsonConnection":
+                Uri fileUri = new Uri(HostingEnvironment.MapPath(@"~/App_Data/customers.json"), UriKind.RelativeOrAbsolute);
+                JsonSourceConnectionParameters jsonParams = new JsonSourceConnectionParameters();
+                jsonParams.JsonSource = new UriJsonSource(fileUri);
+                e.ConnectionParameters = jsonParams;
+                break;
+            }
+            if(e.DataSourceName.Contains("Extract Data Source")) {
+                ExtractDataSourceConnectionParameters extractParams = new ExtractDataSourceConnectionParameters();
+                extractParams.FileName = HostingEnvironment.MapPath(@"~/App_Data/SalesPersonExtract.dat");
+                e.ConnectionParameters = extractParams;
+            }
+            if(e.DataSourceName.Contains("Excel Data Source")) {
+                ExcelDataSourceConnectionParameters excelParams = new ExcelDataSourceConnectionParameters(HostingEnvironment.MapPath(@"~/App_Data/Sales.xlsx"));
+                e.ConnectionParameters = excelParams;
             }
         }
 
@@ -49,22 +76,20 @@ namespace WebFormsDashboardDataSources {
             sqlDataSource.Queries.Add(query);
             dataSourceStorage.RegisterDataSource("sqlDataSource", sqlDataSource.SaveToXml());
 
-            // Registers an OLAP data source.
-            DashboardOlapDataSource olapDataSource = new DashboardOlapDataSource("OLAP Data Source", "olapConnection");
-            DashboardOlapDataSource.OlapDataProvider = OlapDataProviderType.Xmla;
-            dataSourceStorage.RegisterDataSource("olapDataSource", olapDataSource.SaveToXml());
-
-            // Registers an Excel data source.
-            DashboardExcelDataSource excelDataSource = new DashboardExcelDataSource("Excel Data Source");
-            excelDataSource.FileName = HostingEnvironment.MapPath(@"~/App_Data/Sales.xlsx");
-            excelDataSource.SourceOptions = new ExcelSourceOptions(new ExcelWorksheetSettings("Sheet1"));
-            dataSourceStorage.RegisterDataSource("excelDataSource", excelDataSource.SaveToXml());
-
             // Registers an Object data source.
             DashboardObjectDataSource objDataSource = new DashboardObjectDataSource("Object Data Source");
             dataSourceStorage.RegisterDataSource("objDataSource", objDataSource.SaveToXml());
 
-            // Registers a EF Core data source.
+            // Registers an Excel data source.
+            DashboardExcelDataSource excelDataSource = new DashboardExcelDataSource("Excel Data Source");
+            excelDataSource.SourceOptions = new ExcelSourceOptions(new ExcelWorksheetSettings("Sheet1"));
+            dataSourceStorage.RegisterDataSource("excelDataSource", excelDataSource.SaveToXml());
+
+            // Registers an OLAP data source.
+            DashboardOlapDataSource olapDataSource = new DashboardOlapDataSource("OLAP Data Source", "olapConnection");
+            dataSourceStorage.RegisterDataSource("olapDataSource", olapDataSource.SaveToXml());
+
+            // Registers an Entity Framework data source.
             DashboardEFDataSource efDataSource = new DashboardEFDataSource("EF Core Data Source");
             efDataSource.ConnectionParameters = new EFConnectionParameters(typeof(OrdersContext));
             dataSourceStorage.RegisterDataSource("efDataSource", efDataSource.SaveToXml());
@@ -72,7 +97,6 @@ namespace WebFormsDashboardDataSources {
             // Registers an Extract data source.
             DashboardExtractDataSource extractDataSource = new DashboardExtractDataSource("Extract Data Source");
             extractDataSource.Name = "Extract Data Source";
-            extractDataSource.FileName = @"Data/SalesPersonExtract.dat";
             dataSourceStorage.RegisterDataSource("extractDataSource ", extractDataSource.SaveToXml());
 
             // Registers a JSON data source from URL.
@@ -84,8 +108,7 @@ namespace WebFormsDashboardDataSources {
 
             // Registers a JSON data source from a JSON file.
             DashboardJsonDataSource jsonDataSourceFile = new DashboardJsonDataSource("JSON Data Source (File)");
-            Uri fileUri = new Uri(@"App_Data/customers.json", UriKind.RelativeOrAbsolute);
-            jsonDataSourceFile.JsonSource = new UriJsonSource(fileUri);
+            jsonDataSourceFile.ConnectionName = "jsonConnection";
             jsonDataSourceFile.RootElement = "Customers";
             jsonDataSourceFile.Fill();
             dataSourceStorage.RegisterDataSource("jsonDataSourceFile", jsonDataSourceFile.SaveToXml());
@@ -105,12 +128,6 @@ namespace WebFormsDashboardDataSources {
             dataSourceStorage.RegisterDataSource("xpoDataSource", xpoDataSource.SaveToXml());
 
             return dataSourceStorage;
-        }
-
-        protected void DataLoading(object sender, DataLoadingWebEventArgs e) {
-            if(e.DataSourceName == "Object Data Source") {
-                e.Data = Invoices.CreateData();
-            }
         }
     }
 }
