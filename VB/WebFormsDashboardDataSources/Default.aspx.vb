@@ -50,8 +50,8 @@ Namespace WebFormsDashboardDataSources
 
 			' Registers an OLAP data source.
 			Dim olapDataSource As New DashboardOlapDataSource("OLAP Data Source", "olapConnection")
-			DashboardOlapDataSource.OlapDataProvider = OlapDataProviderType.Xmla
-			dataSourceStorage.RegisterDataSource("olapDataSource", olapDataSource.SaveToXml())
+            DashboardOlapDataSource.OlapDataProvider = OlapDataProviderType.Adomd
+            dataSourceStorage.RegisterDataSource("olapDataSource", olapDataSource.SaveToXml())
 
 			' Registers an Excel data source.
 			Dim excelDataSource As New DashboardExcelDataSource("Excel Data Source")
@@ -63,7 +63,7 @@ Namespace WebFormsDashboardDataSources
 			Dim objDataSource As New DashboardObjectDataSource("Object Data Source")
 			dataSourceStorage.RegisterDataSource("objDataSource", objDataSource.SaveToXml())
 
-			' Registers a EF Core data source.
+			' Registers an Entity Framework data source.
 			Dim efDataSource As New DashboardEFDataSource("EF Core Data Source")
 			efDataSource.ConnectionParameters = New EFConnectionParameters(GetType(OrdersContext))
 			dataSourceStorage.RegisterDataSource("efDataSource", efDataSource.SaveToXml())
@@ -71,7 +71,7 @@ Namespace WebFormsDashboardDataSources
 			' Registers an Extract data source.
 			Dim extractDataSource As New DashboardExtractDataSource("Extract Data Source")
 			extractDataSource.Name = "Extract Data Source"
-			extractDataSource.FileName = "Data/SalesPersonExtract.dat"
+		extractDataSource.FileName = "App_Data/SalesPersonExtract.dat"
 			dataSourceStorage.RegisterDataSource("extractDataSource ", extractDataSource.SaveToXml())
 
 			' Registers a JSON data source from URL.
