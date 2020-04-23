@@ -4,6 +4,9 @@
 * [Default.aspx.vb](./VB/WebFormsDashboardDataSources/Default.aspx.vb)
 
 ## How to Register Data Sources for ASP.NET Web Forms Dashboard Control
+<!-- run online -->
+**[[Run Online]](https://codecentral.devexpress.com/218993704/)**
+<!-- run online end -->
 
 The following example displays how to provide a Web Dashboard with a set of predefined data sources available for end users.
 
