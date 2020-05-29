@@ -7,7 +7,7 @@ Namespace WebFormsDashboardDataSources
 		Public Property Country() As String
 		Public Property City() As String
 		Public Property ProductName() As String
-		Public Property OrderDate() As DateTime
+		Public Property OrderDate() As Date
 		Public Property Quantity() As Integer
 		Public Property Discount() As Double
 		Public Property ExtendedPrice() As Double
@@ -371,10 +371,10 @@ data.Add(New Invoices With {
 			Return data
 		End Function
 
-		Private Shared Function GenerateOrderDate() As DateTime
-			Dim startYear As Integer = DateTime.Today.Year - 3
-			Dim endYear As Integer = DateTime.Today.Year
-			Return New DateTime(rnd.Next(startYear, endYear), rnd.Next(1, 13), rnd.Next(1, 29))
+		Private Shared Function GenerateOrderDate() As Date
+			Dim startYear As Integer = Date.Today.Year - 3
+			Dim endYear As Integer = Date.Today.Year
+			Return New Date(rnd.Next(startYear, endYear), rnd.Next(1, 13), rnd.Next(1, 29))
 		End Function
 	End Class
 End Namespace

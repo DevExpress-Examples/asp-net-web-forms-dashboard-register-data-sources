@@ -28,38 +28,14 @@ Namespace WebFormsDashboardDataSources
 			AddHandler ASPxDashboard1.ConfigureDataConnection, AddressOf ASPxDashboard1_ConfigureDataConnection
 
 			AccessSettings.DataResources.TrySetRules(UrlAccessRule.Allow(),DirectoryAccessRule.Allow())
-
-			AddHandler ASPxDashboard1.DataLoading, AddressOf ASPxDashboard1_DataLoading
-		End Sub
-
-		Private Sub ASPxDashboard1_DataLoading(ByVal sender As Object, ByVal e As DataLoadingWebEventArgs)
-			If e.DataSourceName.Contains("Object Data Source") Then
-				e.Data = Invoices.CreateData()
-			End If
 		End Sub
 
 		Private Sub ASPxDashboard1_ConfigureDataConnection(ByVal sender As Object, ByVal e As ConfigureDataConnectionWebEventArgs)
-			Select Case e.ConnectionName
-
-				Case "olapConnection"
+			If e.ConnectionName = "olapConnection" Then
 				Dim olapParams As New OlapConnectionParameters()
-				olapParams.ConnectionString = "Provider=MSOLAP;Data Source=http://demos.devexpress.com/Services/OLAP/msmdpump.dll;" & "Initial catalog=Adventure Works DW Standard Edition;Cube name=Adventure Works;Query Timeout=100;"
+				olapParams.ConnectionString = "Provider=MSOLAP;Data Source=http://demos.devexpress.com/Services/OLAP/msmdpump.dll;" &
+					"Initial catalog=Adventure Works DW Standard Edition;Cube name=Adventure Works;Query Timeout=100;"
 				e.ConnectionParameters = olapParams
-
-				Case "jsonConnection"
-				Dim fileUri As New Uri(HostingEnvironment.MapPath("~/App_Data/customers.json"), UriKind.RelativeOrAbsolute)
-				Dim jsonParams As New JsonSourceConnectionParameters()
-				jsonParams.JsonSource = New UriJsonSource(fileUri)
-				e.ConnectionParameters = jsonParams
-			End Select
-			If e.DataSourceName.Contains("Extract Data Source") Then
-				Dim extractParams As New ExtractDataSourceConnectionParameters()
-				extractParams.FileName = HostingEnvironment.MapPath("~/App_Data/SalesPersonExtract.dat")
-				e.ConnectionParameters = extractParams
-			End If
-			If e.DataSourceName.Contains("Excel Data Source") Then
-				Dim excelParams As New ExcelDataSourceConnectionParameters(HostingEnvironment.MapPath("~/App_Data/Sales.xlsx"))
-				e.ConnectionParameters = excelParams
 			End If
 		End Sub
 
@@ -72,18 +48,20 @@ Namespace WebFormsDashboardDataSources
 			sqlDataSource.Queries.Add(query)
 			dataSourceStorage.RegisterDataSource("sqlDataSource", sqlDataSource.SaveToXml())
 
-			' Registers an Object data source.
-			Dim objDataSource As New DashboardObjectDataSource("Object Data Source")
-			dataSourceStorage.RegisterDataSource("objDataSource", objDataSource.SaveToXml())
+			' Registers an OLAP data source.
+			Dim olapDataSource As New DashboardOlapDataSource("OLAP Data Source", "olapConnection")
+            DashboardOlapDataSource.OlapDataProvider = OlapDataProviderType.Adomd
+            dataSourceStorage.RegisterDataSource("olapDataSource", olapDataSource.SaveToXml())
 
 			' Registers an Excel data source.
 			Dim excelDataSource As New DashboardExcelDataSource("Excel Data Source")
+			excelDataSource.FileName = HostingEnvironment.MapPath("~/App_Data/Sales.xlsx")
 			excelDataSource.SourceOptions = New ExcelSourceOptions(New ExcelWorksheetSettings("Sheet1"))
 			dataSourceStorage.RegisterDataSource("excelDataSource", excelDataSource.SaveToXml())
 
-			' Registers an OLAP data source.
-			Dim olapDataSource As New DashboardOlapDataSource("OLAP Data Source", "olapConnection")
-			dataSourceStorage.RegisterDataSource("olapDataSource", olapDataSource.SaveToXml())
+			' Registers an Object data source.
+			Dim objDataSource As New DashboardObjectDataSource("Object Data Source")
+			dataSourceStorage.RegisterDataSource("objDataSource", objDataSource.SaveToXml())
 
 			' Registers an Entity Framework data source.
 			Dim efDataSource As New DashboardEFDataSource("EF Core Data Source")
@@ -93,6 +71,7 @@ Namespace WebFormsDashboardDataSources
 			' Registers an Extract data source.
 			Dim extractDataSource As New DashboardExtractDataSource("Extract Data Source")
 			extractDataSource.Name = "Extract Data Source"
+		extractDataSource.FileName = "App_Data/SalesPersonExtract.dat"
 			dataSourceStorage.RegisterDataSource("extractDataSource ", extractDataSource.SaveToXml())
 
 			' Registers a JSON data source from URL.
@@ -104,7 +83,8 @@ Namespace WebFormsDashboardDataSources
 
 			' Registers a JSON data source from a JSON file.
 			Dim jsonDataSourceFile As New DashboardJsonDataSource("JSON Data Source (File)")
-			jsonDataSourceFile.ConnectionName = "jsonConnection"
+			Dim fileUri As New Uri("App_Data/customers.json", UriKind.RelativeOrAbsolute)
+			jsonDataSourceFile.JsonSource = New UriJsonSource(fileUri)
 			jsonDataSourceFile.RootElement = "Customers"
 			jsonDataSourceFile.Fill()
 			dataSourceStorage.RegisterDataSource("jsonDataSourceFile", jsonDataSourceFile.SaveToXml())
@@ -125,5 +105,11 @@ Namespace WebFormsDashboardDataSources
 
 			Return dataSourceStorage
 		End Function
+
+		Protected Sub DataLoading(ByVal sender As Object, ByVal e As DataLoadingWebEventArgs)
+			If e.DataSourceName = "Object Data Source" Then
+				e.Data = Invoices.CreateData()
+			End If
+		End Sub
 	End Class
 End Namespace

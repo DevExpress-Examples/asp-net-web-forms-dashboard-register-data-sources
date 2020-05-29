@@ -1,4 +1,4 @@
-<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Root.master.cs" Inherits="WebFormsDashboardDataSources.RootMaster" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Root.master.vb" Inherits="WebFormsDashboardDataSources.RootMaster" %>
 
 <%-- DXCOMMENT: Page Root.master is a master page that contains the root layout (it includes Header, Cental Area, and Footer) --%>
 <!DOCTYPE html>
