@@ -44,7 +44,7 @@ Namespace WebFormsDashboardDataSources
 
 			' Registers an SQL data source.
 			Dim sqlDataSource As New DashboardSqlDataSource("SQL Data Source", "NWindConnectionString")
-			Dim query As SelectQuery = SelectQueryFluentBuilder.AddTable("SalesPerson").SelectAllColumns().Build("Sales Person")
+			Dim query As SelectQuery = SelectQueryFluentBuilder.AddTable("SalesPerson").SelectAllColumnsFromTable().Build("Sales Person")
 			sqlDataSource.Queries.Add(query)
 			dataSourceStorage.RegisterDataSource("sqlDataSource", sqlDataSource.SaveToXml())
 
