@@ -9,33 +9,25 @@
 
 Namespace WebFormsDashboardDataSources
 
+
 	Partial Public Class MainMaster
 
 		''' <summary>
-		''' head control.
+		''' ContentSplitter control.
 		''' </summary>
 		''' <remarks>
 		''' Auto-generated field.
 		''' To modify move field declaration from designer file to code-behind file.
 		''' </remarks>
-		Protected head As Global.System.Web.UI.WebControls.ContentPlaceHolder
+		Protected ContentSplitter As Global.DevExpress.Web.ASPxSplitter
 
 		''' <summary>
-		''' form1 control.
+		''' MainContent control.
 		''' </summary>
 		''' <remarks>
 		''' Auto-generated field.
 		''' To modify move field declaration from designer file to code-behind file.
 		''' </remarks>
-		Protected form1 As Global.System.Web.UI.HtmlControls.HtmlForm
-
-		''' <summary>
-		''' ContentPlaceHolder1 control.
-		''' </summary>
-		''' <remarks>
-		''' Auto-generated field.
-		''' To modify move field declaration from designer file to code-behind file.
-		''' </remarks>
-		Protected ContentPlaceHolder1 As Global.System.Web.UI.WebControls.ContentPlaceHolder
+		Protected MainContent As Global.System.Web.UI.WebControls.ContentPlaceHolder
 	End Class
 End Namespace

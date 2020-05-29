@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" MasterPageFile="~/Root.master" AutoEventWireup="true" CodeBehind="Main.master.vb" Inherits="WebFormsDashboardDataSources.MainMaster" %>
+<%@ Master Language="C#" MasterPageFile="~/Root.master" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="WebFormsDashboardDataSources.MainMaster" %>
 
 <%-- DXCOMMENT: Page Main.master is a master page that contains central area layout --%>
 <asp:Content ID="Content2" ContentPlaceHolderID="Content" runat="server">
