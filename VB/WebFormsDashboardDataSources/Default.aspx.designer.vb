@@ -9,15 +9,16 @@
 
 Namespace WebFormsDashboardDataSources
 
+
 	Partial Public Class [Default]
 
 		''' <summary>
-		''' ASPxDashboard1 control.
+		''' form1 control.
 		''' </summary>
 		''' <remarks>
 		''' Auto-generated field.
 		''' To modify move field declaration from designer file to code-behind file.
 		''' </remarks>
-		Protected ASPxDashboard1 As Global.DevExpress.DashboardWeb.ASPxDashboard
+		Protected form1 As Global.System.Web.UI.HtmlControls.HtmlForm
 	End Class
 End Namespace

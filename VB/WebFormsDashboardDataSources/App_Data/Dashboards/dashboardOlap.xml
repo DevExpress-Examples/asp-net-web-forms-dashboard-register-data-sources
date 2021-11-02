@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard>
+  <Title Text="OLAP Data Source" />
+  <DataSources>
+    <OLAPDataSource ComponentName="oLAPDataSource1" Name="OLAP Data Source" ConnectionName="olapConnection" />
+  </DataSources>
+  <Items>
+    <Grid ComponentName="gridDashboardItem1" Name="Grid 1" DataSource="oLAPDataSource1">
+      <InteractivityOptions IsDrillDownEnabled="true" />
+      <DataItems>
+        <Dimension DataMember="[Product].[Product Categories].[Category]" GroupIndex="10" DefaultId="DataItem0" />
+        <Dimension DataMember="[Product].[Product Categories].[Subcategory]" GroupIndex="10" DefaultId="DataItem1" />
+        <Dimension DataMember="[Product].[Product Categories].[Product]" GroupIndex="10" DefaultId="DataItem2" />
+        <Measure DataMember="[Measures].[Internet Sales Amount]" DefaultId="DataItem3">
+          <NumericFormat FormatType="Currency" IncludeGroupSeparator="true" CurrencyCultureName="en-US" />
+        </Measure>
+      </DataItems>
+      <GridColumns>
+        <GridDimensionColumn>
+          <Dimension DefaultId="DataItem0" />
+        </GridDimensionColumn>
+        <GridDimensionColumn>
+          <Dimension DefaultId="DataItem1" />
+        </GridDimensionColumn>
+        <GridDimensionColumn>
+          <Dimension DefaultId="DataItem2" />
+        </GridDimensionColumn>
+        <GridMeasureColumn>
+          <Measure DefaultId="DataItem3" />
+        </GridMeasureColumn>
+      </GridColumns>
+      <GridOptions />
+    </Grid>
+    <Chart ComponentName="chartDashboardItem1" Name="Chart 1" DataSource="oLAPDataSource1">
+      <DataItems>
+        <Measure DataMember="[Measures].[Internet Average Unit Price]" DefaultId="DataItem0">
+          <NumericFormat FormatType="Currency" IncludeGroupSeparator="true" />
+        </Measure>
+        <Dimension DataMember="[Delivery Date].[Fiscal Year].[Fiscal Year]" DefaultId="DataItem1" />
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem1" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Pane 1">
+          <Series>
+            <Simple SeriesType="Line">
+              <Value DefaultId="DataItem0" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+  </Items>
+  <LayoutTree>
+    <LayoutGroup>
+      <LayoutGroup Orientation="Vertical">
+        <LayoutItem DashboardItem="gridDashboardItem1" />
+        <LayoutItem DashboardItem="chartDashboardItem1" />
+      </LayoutGroup>
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>

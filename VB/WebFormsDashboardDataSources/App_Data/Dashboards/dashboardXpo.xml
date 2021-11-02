@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard>
+  <Title Text="XPO Data Source" />
+  <DataSources>
+    <XPObjectSource ComponentName="xPObjectSource1">
+      <Name>XPO Data Source</Name>
+      <ConnectionStringName>NWindConnectionStringSQLite</ConnectionStringName>
+      <TopRecords>0</TopRecords>
+      <SkipRecords>0</SkipRecords>
+      <EntityType>WebFormsDashboardDataSources.Category,WebFormsDashboardDataSources</EntityType>
+      <Parameters />
+      <Sorting />
+      <Properties />
+    </XPObjectSource>
+  </DataSources>
+  <Items>
+    <Grid ComponentName="gridDashboardItem1" Name="Grid 1" DataSource="xPObjectSource1">
+      <DataItems>
+        <Dimension DataMember="CategoryName" DefaultId="DataItem0" />
+        <Dimension DataMember="Description" DefaultId="DataItem1" />
+        <Dimension DataMember="CategoryID" DefaultId="DataItem2" />
+      </DataItems>
+      <GridColumns>
+        <GridDimensionColumn>
+          <Dimension DefaultId="DataItem2" />
+        </GridDimensionColumn>
+        <GridDimensionColumn>
+          <Dimension DefaultId="DataItem0" />
+        </GridDimensionColumn>
+        <GridDimensionColumn>
+          <Dimension DefaultId="DataItem1" />
+        </GridDimensionColumn>
+      </GridColumns>
+      <GridOptions />
+    </Grid>
+  </Items>
+  <LayoutTree>
+    <LayoutGroup>
+      <LayoutItem DashboardItem="gridDashboardItem1" />
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>
