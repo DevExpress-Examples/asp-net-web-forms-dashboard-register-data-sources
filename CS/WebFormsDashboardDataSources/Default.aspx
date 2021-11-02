@@ -1,14 +1,26 @@
-<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Main.Master" CodeBehind="Default.aspx.cs" Inherits="WebFormsDashboardDataSources.Default" %>
-<%@ Register Assembly="DevExpress.Dashboard.v19.2.Web.WebForms, Version=19.2.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.DashboardWeb" TagPrefix="dx" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="WebFormsDashboardDataSources.Default" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-<script type="text/javascript">
-    function onBeforeRender(sender) {
-        var control = sender.GetDashboardControl();
-        control.registerExtension(new DevExpress.Dashboard.DashboardPanelExtension(control, { dashboardThumbnail: "./Content/DashboardThumbnail/{0}.png" }));
-    }
-</script>
-    <dx:ASPxDashboard ID="ASPxDashboard1" runat="server" Width="100%" Height="100%" UseNeutralFilterMode="true">
-        <ClientSideEvents BeforeRender="onBeforeRender" />
-    </dx:ASPxDashboard>
-</asp:Content>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>A list of dashboards</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <p>Click to open a dashboard:</p>
+            <ul>
+                <li><a href="Pages/EFDashboard.aspx">Entity Framework</a></li>
+                <li><a href="Pages/ExcelDashboard.aspx">Excel worksheet</a></li>
+                <li><a href="Pages/ExtractDashboard.aspx">Data Extract</a></li>
+                <li><a href="Pages/JsonDashboard.aspx">JSON</a></li>
+                <li><a href="Pages/ObjectDashboard.aspx">Object</a></li>
+                <li><a href="Pages/OlapDashboard.aspx">OLAP Cube</a></li>
+                <li><a href="Pages/SqlDashboard.aspx">SQL Database</a></li>
+                <li><a href="Pages/XpoDashboard.aspx">eXpress Persistent Objects (XPO)</a></li>
+            </ul>
+        </div>
+    </form>
+</body>
+</html>
