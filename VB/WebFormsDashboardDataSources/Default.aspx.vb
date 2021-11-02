@@ -1,10 +1,11 @@
-﻿Imports System
+Imports System
 
 Namespace WebFormsDashboardDataSources
-	Partial Public Class [Default]
-		Inherits System.Web.UI.Page
 
-		Protected Sub Page_Load(ByVal sender As Object, ByVal e As EventArgs)
-		End Sub
-	End Class
+    Public Partial Class [Default]
+        Inherits Web.UI.Page
+
+        Protected Sub Page_Load(ByVal sender As Object, ByVal e As EventArgs)
+        End Sub
+    End Class
 End Namespace
