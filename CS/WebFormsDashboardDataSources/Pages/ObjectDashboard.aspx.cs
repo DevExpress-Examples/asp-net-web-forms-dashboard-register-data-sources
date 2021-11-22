@@ -19,13 +19,14 @@ namespace WebFormsDashboardDataSources.Pages {
             DataSourceInMemoryStorage dataSourceStorage = new DataSourceInMemoryStorage();
 
             DashboardObjectDataSource objDataSource = new DashboardObjectDataSource("Object Data Source");
+            objDataSource.DataId = "objectDataSource";
             dataSourceStorage.RegisterDataSource("objDataSource", objDataSource.SaveToXml());
 
             return dataSourceStorage;
         }
 
         private void ASPxDashboardObjectDS_DataLoading(object sender, DataLoadingWebEventArgs e) {
-            if (e.DataSourceName.Contains("Object Data Source")) {
+            if (e.DataId == "objectDataSource") {
                 e.Data = Invoices.CreateData();
             }
         }
