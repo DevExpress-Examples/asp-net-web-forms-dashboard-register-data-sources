@@ -20,12 +20,13 @@ Namespace WebFormsDashboardDataSources.Pages
         Private Function CreateDataSourceStorage() As DataSourceInMemoryStorage
             Dim dataSourceStorage As DataSourceInMemoryStorage = New DataSourceInMemoryStorage()
             Dim objDataSource As DashboardObjectDataSource = New DashboardObjectDataSource("Object Data Source")
+            objDataSource.DataId = "objectDataSource"
             dataSourceStorage.RegisterDataSource("objDataSource", objDataSource.SaveToXml())
             Return dataSourceStorage
         End Function
 
         Private Sub ASPxDashboardObjectDS_DataLoading(ByVal sender As Object, ByVal e As DataLoadingWebEventArgs)
-            If e.DataSourceName.Contains("Object Data Source") Then
+            If Equals(e.DataId, "objectDataSource") Then
                 e.Data = Invoices.CreateData()
             End If
         End Sub
