@@ -2,7 +2,7 @@
 <Dashboard>
   <Title Text="Object Data Source" />
   <DataSources>
-    <ObjectDataSource Name="Object Data Source" ComponentName="objectDataSource1" />
+    <ObjectDataSource Name="Object Data Source" ComponentName="objectDataSource1" DataId="objectDataSource"/>
   </DataSources>
   <Items>
     <Grid ComponentName="gridDashboardItem1" Name="Grid 1" DataSource="objectDataSource1">
