@@ -1,4 +1,4 @@
-﻿<%@ Page Language="vb" AutoEventWireup="true" CodeBehind="ExcelDashboard.aspx.vb" Inherits="WebFormsDashboardDataSources.Pages.ExcelDashboard" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ExcelDashboard.aspx.cs" Inherits="WebFormsDashboardDataSources.Pages.ExcelDashboard" %>
 <%@ Register Assembly="DevExpress.Dashboard.v20.2.Web.WebForms, Version=20.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.DashboardWeb" TagPrefix="dx" %>
 
 <!DOCTYPE html>
