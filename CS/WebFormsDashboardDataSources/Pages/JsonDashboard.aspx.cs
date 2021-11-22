@@ -13,13 +13,9 @@ namespace WebFormsDashboardDataSources.Pages {
             // Uncomment this string to allow end users to create new data sources based on predefined connection strings.
             //ASPxDashboardJson.SetConnectionStringsProvider(new DevExpress.DataAccess.Web.ConfigFileConnectionStringsProvider());
 
-            ASPxDashboardJson.SetDataSourceStorage(CreateDataSourceStorage());
-            ASPxDashboardJson.ConfigureDataConnection += ASPxDashboardJson_ConfigureDataConnection;
-            ASPxDashboardJson.InitialDashboardId = "dashboardJson";
-        }
-
-        private DataSourceInMemoryStorage CreateDataSourceStorage() {
+            // Creates data source storage.
             DataSourceInMemoryStorage dataSourceStorage = new DataSourceInMemoryStorage();
+
             // Registers a JSON data source from URL.
             DashboardJsonDataSource jsonDataSourceUrl = new DashboardJsonDataSource("JSON Data Source (URL)");
             jsonDataSourceUrl.JsonSource = new UriJsonSource(new Uri("https://raw.githubusercontent.com/DevExpress-Examples/DataSources/master/JSON/support.json"));
@@ -39,7 +35,12 @@ namespace WebFormsDashboardDataSources.Pages {
             jsonDataSourceString.RootElement = "Customers";
             dataSourceStorage.RegisterDataSource("jsonDataSourceString", jsonDataSourceString.SaveToXml());
 
-            return dataSourceStorage;
+            // Set the configured data source storage.
+            ASPxDashboardJson.SetDataSourceStorage(dataSourceStorage);
+
+            ASPxDashboardJson.ConfigureDataConnection += ASPxDashboardJson_ConfigureDataConnection;
+
+            ASPxDashboardJson.InitialDashboardId = "dashboardJson";
         }
         private void ASPxDashboardJson_ConfigureDataConnection(object sender, ConfigureDataConnectionWebEventArgs e) {
             if (e.ConnectionName == "jsonConnection") {

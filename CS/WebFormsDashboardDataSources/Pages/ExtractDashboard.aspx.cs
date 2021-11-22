@@ -12,8 +12,17 @@ namespace WebFormsDashboardDataSources.Pages {
             // Uncomment this string to allow end users to create new data sources based on predefined connection strings.
             //ASPxDashboardExtract.SetConnectionStringsProvider(new DevExpress.DataAccess.Web.ConfigFileConnectionStringsProvider());
 
-            ASPxDashboardExtract.SetDataSourceStorage(CreateDataSourceStorage());
-            ASPxDashboardExtract.InitialDashboardId = "dashboardExtract";
+            // Creates data source storage.
+            DataSourceInMemoryStorage dataSourceStorage = new DataSourceInMemoryStorage();
+
+            // Registers an Extract data source.
+            DashboardExtractDataSource extractDataSource = new DashboardExtractDataSource("Extract Data Source");
+            extractDataSource.ConnectionName = "extractDataConnection";
+            dataSourceStorage.RegisterDataSource("extractDataSource ", extractDataSource.SaveToXml());
+
+            // Set the configured data source storage.
+            ASPxDashboardExtract.SetDataSourceStorage(dataSourceStorage);
+
             ASPxDashboardExtract.ConfigureDataConnection += ASPxDashboardExtract_ConfigureDataConnection;
             ASPxDashboardExtract.InitialDashboardId = "dashboardExtract";
         }
@@ -24,17 +33,6 @@ namespace WebFormsDashboardDataSources.Pages {
                 extractParams.FileName = HostingEnvironment.MapPath(@"~/App_Data/SalesPersonExtract.dat");
                 e.ConnectionParameters = extractParams;
             }
-        }
-
-        private DataSourceInMemoryStorage CreateDataSourceStorage() {
-            DataSourceInMemoryStorage dataSourceStorage = new DataSourceInMemoryStorage();
-
-            // Registers an Extract data source.
-            DashboardExtractDataSource extractDataSource = new DashboardExtractDataSource("Extract Data Source");
-            extractDataSource.ConnectionName = "extractDataConnection";
-            dataSourceStorage.RegisterDataSource("extractDataSource ", extractDataSource.SaveToXml());
-
-            return dataSourceStorage;
         }
     }
 }

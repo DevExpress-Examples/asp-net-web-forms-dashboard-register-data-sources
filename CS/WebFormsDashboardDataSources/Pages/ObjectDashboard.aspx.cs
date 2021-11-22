@@ -10,19 +10,20 @@ namespace WebFormsDashboardDataSources.Pages {
 
             // Uncomment this string to allow end users to create new data sources based on predefined connection strings.
             //ASPxDashboardObjectDS.SetConnectionStringsProvider(new DevExpress.DataAccess.Web.ConfigFileConnectionStringsProvider());
-
-            ASPxDashboardObjectDS.SetDataSourceStorage(CreateDataSourceStorage());
-            ASPxDashboardObjectDS.InitialDashboardId = "dashboardObjectDS";
-            ASPxDashboardObjectDS.DataLoading += ASPxDashboardObjectDS_DataLoading;
-        }
-        private DataSourceInMemoryStorage CreateDataSourceStorage() {
+            
+            // Creates data source storage.
             DataSourceInMemoryStorage dataSourceStorage = new DataSourceInMemoryStorage();
 
+            // Registers an Object data source.
             DashboardObjectDataSource objDataSource = new DashboardObjectDataSource("Object Data Source");
             objDataSource.DataId = "objectDataSource";
             dataSourceStorage.RegisterDataSource("objDataSource", objDataSource.SaveToXml());
 
-            return dataSourceStorage;
+            // Set the configured data source storage.
+            ASPxDashboardObjectDS.SetDataSourceStorage(dataSourceStorage);
+
+            ASPxDashboardObjectDS.DataLoading += ASPxDashboardObjectDS_DataLoading;
+            ASPxDashboardObjectDS.InitialDashboardId = "dashboardObjectDS";
         }
 
         private void ASPxDashboardObjectDS_DataLoading(object sender, DataLoadingWebEventArgs e) {

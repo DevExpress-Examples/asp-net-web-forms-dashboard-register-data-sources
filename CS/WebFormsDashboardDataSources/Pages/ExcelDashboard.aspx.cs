@@ -13,8 +13,20 @@ namespace WebFormsDashboardDataSources.Pages {
             // Uncomment this string to allow end users to create new data sources based on predefined connection strings.
             //ASPxDashboardExcel.SetConnectionStringsProvider(new DevExpress.DataAccess.Web.ConfigFileConnectionStringsProvider());
 
-            ASPxDashboardExcel.SetDataSourceStorage(CreateDataSourceStorage());
+            // Creates data source storage.
+            DataSourceInMemoryStorage dataSourceStorage = new DataSourceInMemoryStorage();
+
+            // Registers an Excel data source.
+            DashboardExcelDataSource excelDataSource = new DashboardExcelDataSource("Excel Data Source");
+            excelDataSource.ConnectionName = "excelDataConnection";
+            excelDataSource.SourceOptions = new ExcelSourceOptions(new ExcelWorksheetSettings("Sheet1"));
+            dataSourceStorage.RegisterDataSource("excelDataSource", excelDataSource.SaveToXml());
+            
+            // Set the configured data source storage.
+            ASPxDashboardExcel.SetDataSourceStorage(dataSourceStorage);
+
             ASPxDashboardExcel.ConfigureDataConnection += ASPxDashboardExcel_ConfigureDataConnection;
+
             ASPxDashboardExcel.InitialDashboardId = "dashboardExcel";
         }
 
@@ -23,17 +35,6 @@ namespace WebFormsDashboardDataSources.Pages {
                 var excelParams = new ExcelDataSourceConnectionParameters(HostingEnvironment.MapPath(@"~/App_Data/Sales.xlsx"));
                 e.ConnectionParameters = excelParams;
             }
-        }
-        private DataSourceInMemoryStorage CreateDataSourceStorage() {
-            DataSourceInMemoryStorage dataSourceStorage = new DataSourceInMemoryStorage();
-
-            // Registers an Excel data source.
-            DashboardExcelDataSource excelDataSource = new DashboardExcelDataSource("Excel Data Source");
-            excelDataSource.ConnectionName = "excelDataConnection";
-            excelDataSource.SourceOptions = new ExcelSourceOptions(new ExcelWorksheetSettings("Sheet1"));
-            dataSourceStorage.RegisterDataSource("excelDataSource", excelDataSource.SaveToXml());
-
-            return dataSourceStorage;
         }
     }
 }

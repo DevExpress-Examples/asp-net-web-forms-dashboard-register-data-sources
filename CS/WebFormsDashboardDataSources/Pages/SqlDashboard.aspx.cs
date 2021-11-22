@@ -12,10 +12,7 @@ namespace WebFormsDashboardDataSources.Pages {
             // Uncomment this string to allow end users to create new data sources based on predefined connection strings.
             //ASPxDashboardSql.SetConnectionStringsProvider(new DevExpress.DataAccess.Web.ConfigFileConnectionStringsProvider());
 
-            ASPxDashboardSql.SetDataSourceStorage(CreateDataSourceStorage());
-            ASPxDashboardSql.InitialDashboardId = "dashboardSql";
-        }
-        private DataSourceInMemoryStorage CreateDataSourceStorage() {
+            // Creates data source storage.
             DataSourceInMemoryStorage dataSourceStorage = new DataSourceInMemoryStorage();
 
             // Registers an SQL data source.
@@ -27,7 +24,10 @@ namespace WebFormsDashboardDataSources.Pages {
             sqlDataSource.Queries.Add(query);
             dataSourceStorage.RegisterDataSource("sqlDataSource", sqlDataSource.SaveToXml());
 
-            return dataSourceStorage;
+            // Set the configured data source storage.
+            ASPxDashboardSql.SetDataSourceStorage(dataSourceStorage);
+
+            ASPxDashboardSql.InitialDashboardId = "dashboardSql";
         }
     }
 }

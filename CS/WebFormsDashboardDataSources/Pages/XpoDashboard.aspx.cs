@@ -11,11 +11,7 @@ namespace WebFormsDashboardDataSources.Pages {
             // Uncomment this string to allow end users to create new data sources based on predefined connection strings.
             //ASPxDashboardXpo.SetConnectionStringsProvider(new DevExpress.DataAccess.Web.ConfigFileConnectionStringsProvider());
 
-            ASPxDashboardXpo.SetDataSourceStorage(CreateDataSourceStorage());
-            ASPxDashboardXpo.InitialDashboardId = "dashboardXpo";
-        }
-
-        private DataSourceInMemoryStorage CreateDataSourceStorage() {
+            // Creates data source storage.
             DataSourceInMemoryStorage dataSourceStorage = new DataSourceInMemoryStorage();
 
             // Registers an XPO data source.
@@ -24,7 +20,10 @@ namespace WebFormsDashboardDataSources.Pages {
             xpoDataSource.SetEntityType(typeof(Category));
             dataSourceStorage.RegisterDataSource("xpoDataSource", xpoDataSource.SaveToXml());
 
-            return dataSourceStorage;
+            // Set the configured data source storage.
+            ASPxDashboardXpo.SetDataSourceStorage(dataSourceStorage);
+
+            ASPxDashboardXpo.InitialDashboardId = "dashboardXpo";
         }
     }
 }

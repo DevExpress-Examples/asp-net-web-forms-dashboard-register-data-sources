@@ -12,18 +12,19 @@ namespace WebFormsDashboardDataSources.Pages {
             // Uncomment this string to allow end users to create new data sources based on predefined connection strings.
             //ASPxDashboardOlap.SetConnectionStringsProvider(new DevExpress.DataAccess.Web.ConfigFileConnectionStringsProvider());
 
-            ASPxDashboardOlap.SetDataSourceStorage(CreateDataSourceStorage());
-            ASPxDashboardOlap.InitialDashboardId = "dashboardOlap";
-            ASPxDashboardOlap.ConfigureDataConnection += ASPxDashboardOlap_ConfigureDataConnection;
-        }
-        private DataSourceInMemoryStorage CreateDataSourceStorage() {
+            // Creates data source storage.
             DataSourceInMemoryStorage dataSourceStorage = new DataSourceInMemoryStorage();
 
             // Registers an OLAP data source.
             DashboardOlapDataSource olapDataSource = new DashboardOlapDataSource("OLAP Data Source", "olapConnection");
             dataSourceStorage.RegisterDataSource("olapDataSource", olapDataSource.SaveToXml());
 
-            return dataSourceStorage;
+            // Set the configured data source storage.
+            ASPxDashboardOlap.SetDataSourceStorage(dataSourceStorage);
+
+            ASPxDashboardOlap.ConfigureDataConnection += ASPxDashboardOlap_ConfigureDataConnection;
+
+            ASPxDashboardOlap.InitialDashboardId = "dashboardOlap";
         }
         private void ASPxDashboardOlap_ConfigureDataConnection(object sender, ConfigureDataConnectionWebEventArgs e) {
             if (e.ConnectionName == "olapConnection") {
