@@ -16,13 +16,13 @@ namespace WebFormsDashboardDataSources {
 
         public static List<Invoices> CreateData() {
             List<Invoices> data = new List<Invoices>();
-data.Add(new Invoices { Country = "Germany", City = "Aachen", ProductName = "Raclette Courdavault", OrderDate = GenerateOrderDate(), Quantity = 30, Discount = 0, ExtendedPrice = 1650, Freigth = 149.47, UnitPrice = 55 });
+            data.Add(new Invoices { Country = "Germany", City = "Aachen", ProductName = "Raclette Courdavault", OrderDate = GenerateOrderDate(), Quantity = 30, Discount = 0, ExtendedPrice = 1650, Freigth = 149.47, UnitPrice = 55 });
             data.Add(new Invoices { Country = "Germany", City = "Berlin", ProductName = "Raclette Courdavault", OrderDate = GenerateOrderDate(), Quantity = 15, Discount = 0, ExtendedPrice = 825, Freigth = 69.53, UnitPrice = 55 });
             data.Add(new Invoices { Country = "Germany", City = "Brandenburg", ProductName = "Raclette Courdavault", OrderDate = GenerateOrderDate(), Quantity = 61, Discount = 0, ExtendedPrice = 2959, Freigth = 42.33, UnitPrice = 99 });
             data.Add(new Invoices { Country = "Germany", City = "Brandenburg", ProductName = "Raclette Courdavault", OrderDate = GenerateOrderDate(), Quantity = 24, Discount = 0, ExtendedPrice = 1320, Freigth = 29.59, UnitPrice = 55 });
             data.Add(new Invoices { Country = "Germany", City = "Cunewalde", ProductName = "Camembert Pierrot", OrderDate = GenerateOrderDate(), Quantity = 55, Discount = 0.1, ExtendedPrice = 1346.4, Freigth = 183.17, UnitPrice = 27.2 });
             data.Add(new Invoices { Country = "Germany", City = "Cunewalde", ProductName = "Camembert Pierrot", OrderDate = GenerateOrderDate(), Quantity = 139, Discount = 0.2, ExtendedPrice = 4204.1, Freigth = 568.62, UnitPrice = 68 });
-data.Add(new Invoices { Country = "Germany", City = "Cunewalde", ProductName = "Camembert Pierrot", OrderDate = GenerateOrderDate(), Quantity = 49, Discount = 0.25, ExtendedPrice = 1249.5, Freigth = 31.89, UnitPrice = 34 });
+            data.Add(new Invoices { Country = "Germany", City = "Cunewalde", ProductName = "Camembert Pierrot", OrderDate = GenerateOrderDate(), Quantity = 49, Discount = 0.25, ExtendedPrice = 1249.5, Freigth = 31.89, UnitPrice = 34 });
             data.Add(new Invoices { Country = "Germany", City = "Cunewalde", ProductName = "Raclette Courdavault", OrderDate = GenerateOrderDate(), Quantity = 70, Discount = 0, ExtendedPrice = 3850, Freigth = 401.88, UnitPrice = 110 });
             data.Add(new Invoices { Country = "Germany", City = "Frankfurt a.M.", ProductName = "Camembert Pierrot", OrderDate = GenerateOrderDate(), Quantity = 20, Discount = 0.25, ExtendedPrice = 408, Freigth = 76.56, UnitPrice = 27.2 });
             data.Add(new Invoices { Country = "Germany", City = "Frankfurt a.M.", ProductName = "Camembert Pierrot", OrderDate = GenerateOrderDate(), Quantity = 35, Discount = 0.25, ExtendedPrice = 892.5, Freigth = 58.88, UnitPrice = 34 });
