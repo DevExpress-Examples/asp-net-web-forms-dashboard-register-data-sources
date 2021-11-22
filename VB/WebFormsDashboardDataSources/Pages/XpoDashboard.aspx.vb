@@ -12,18 +12,16 @@ Namespace WebFormsDashboardDataSources.Pages
             ASPxDashboardXpo.SetDashboardStorage(dashboardFileStorage)
             ' Uncomment this string to allow end users to create new data sources based on predefined connection strings.
             'ASPxDashboardXpo.SetConnectionStringsProvider(new DevExpress.DataAccess.Web.ConfigFileConnectionStringsProvider());
-            ASPxDashboardXpo.SetDataSourceStorage(CreateDataSourceStorage())
-            ASPxDashboardXpo.InitialDashboardId = "dashboardXpo"
-        End Sub
-
-        Private Function CreateDataSourceStorage() As DataSourceInMemoryStorage
+            ' Creates data source storage.
             Dim dataSourceStorage As DataSourceInMemoryStorage = New DataSourceInMemoryStorage()
             ' Registers an XPO data source.
             Dim xpoDataSource As DashboardXpoDataSource = New DashboardXpoDataSource("XPO Data Source")
             xpoDataSource.ConnectionStringName = "NWindConnectionStringSQLite"
             xpoDataSource.SetEntityType(GetType(Category))
             dataSourceStorage.RegisterDataSource("xpoDataSource", xpoDataSource.SaveToXml())
-            Return dataSourceStorage
-        End Function
+            ' Set the configured data source storage.
+            ASPxDashboardXpo.SetDataSourceStorage(dataSourceStorage)
+            ASPxDashboardXpo.InitialDashboardId = "dashboardXpo"
+        End Sub
     End Class
 End Namespace

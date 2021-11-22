@@ -14,7 +14,15 @@ Namespace WebFormsDashboardDataSources.Pages
             ASPxDashboardExcel.SetDashboardStorage(dashboardFileStorage)
             ' Uncomment this string to allow end users to create new data sources based on predefined connection strings.
             'ASPxDashboardExcel.SetConnectionStringsProvider(new DevExpress.DataAccess.Web.ConfigFileConnectionStringsProvider());
-            ASPxDashboardExcel.SetDataSourceStorage(CreateDataSourceStorage())
+            ' Creates data source storage.
+            Dim dataSourceStorage As DataSourceInMemoryStorage = New DataSourceInMemoryStorage()
+            ' Registers an Excel data source.
+            Dim excelDataSource As DashboardExcelDataSource = New DashboardExcelDataSource("Excel Data Source")
+            excelDataSource.ConnectionName = "excelDataConnection"
+            excelDataSource.SourceOptions = New ExcelSourceOptions(New ExcelWorksheetSettings("Sheet1"))
+            dataSourceStorage.RegisterDataSource("excelDataSource", excelDataSource.SaveToXml())
+            ' Set the configured data source storage.
+            ASPxDashboardExcel.SetDataSourceStorage(dataSourceStorage)
             AddHandler ASPxDashboardExcel.ConfigureDataConnection, AddressOf Me.ASPxDashboardExcel_ConfigureDataConnection
             ASPxDashboardExcel.InitialDashboardId = "dashboardExcel"
         End Sub
@@ -25,15 +33,5 @@ Namespace WebFormsDashboardDataSources.Pages
                 e.ConnectionParameters = excelParams
             End If
         End Sub
-
-        Private Function CreateDataSourceStorage() As DataSourceInMemoryStorage
-            Dim dataSourceStorage As DataSourceInMemoryStorage = New DataSourceInMemoryStorage()
-            ' Registers an Excel data source.
-            Dim excelDataSource As DashboardExcelDataSource = New DashboardExcelDataSource("Excel Data Source")
-            excelDataSource.ConnectionName = "excelDataConnection"
-            excelDataSource.SourceOptions = New ExcelSourceOptions(New ExcelWorksheetSettings("Sheet1"))
-            dataSourceStorage.RegisterDataSource("excelDataSource", excelDataSource.SaveToXml())
-            Return dataSourceStorage
-        End Function
     End Class
 End Namespace

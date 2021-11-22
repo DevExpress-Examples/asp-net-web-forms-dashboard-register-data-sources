@@ -12,18 +12,17 @@ Namespace WebFormsDashboardDataSources.Pages
             ASPxDashboardObjectDS.SetDashboardStorage(dashboardFileStorage)
             ' Uncomment this string to allow end users to create new data sources based on predefined connection strings.
             'ASPxDashboardObjectDS.SetConnectionStringsProvider(new DevExpress.DataAccess.Web.ConfigFileConnectionStringsProvider());
-            ASPxDashboardObjectDS.SetDataSourceStorage(CreateDataSourceStorage())
-            ASPxDashboardObjectDS.InitialDashboardId = "dashboardObjectDS"
-            AddHandler ASPxDashboardObjectDS.DataLoading, AddressOf Me.ASPxDashboardObjectDS_DataLoading
-        End Sub
-
-        Private Function CreateDataSourceStorage() As DataSourceInMemoryStorage
+            ' Creates data source storage.
             Dim dataSourceStorage As DataSourceInMemoryStorage = New DataSourceInMemoryStorage()
+            ' Registers an Object data source.
             Dim objDataSource As DashboardObjectDataSource = New DashboardObjectDataSource("Object Data Source")
             objDataSource.DataId = "objectDataSource"
             dataSourceStorage.RegisterDataSource("objDataSource", objDataSource.SaveToXml())
-            Return dataSourceStorage
-        End Function
+            ' Set the configured data source storage.
+            ASPxDashboardObjectDS.SetDataSourceStorage(dataSourceStorage)
+            AddHandler ASPxDashboardObjectDS.DataLoading, AddressOf Me.ASPxDashboardObjectDS_DataLoading
+            ASPxDashboardObjectDS.InitialDashboardId = "dashboardObjectDS"
+        End Sub
 
         Private Sub ASPxDashboardObjectDS_DataLoading(ByVal sender As Object, ByVal e As DataLoadingWebEventArgs)
             If Equals(e.DataId, "objectDataSource") Then
