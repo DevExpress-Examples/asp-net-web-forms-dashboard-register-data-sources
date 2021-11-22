@@ -10,18 +10,9 @@ This example displays how to supply a Web Dashboard with a set of predefined dat
 
 ![web-dashboard-data-sources](web-dashboard-data-sources.png)
 
-The following data sources are used in this example:
-
-- [SQL data source](https://docs.devexpress.com/Dashboard/401411/web-dashboard/aspnet-web-forms-dashboard-control/register-default-data-sources/sql-data-source)
-- [OLAP data source](https://docs.devexpress.com/Dashboard/401409/web-dashboard/aspnet-web-forms-dashboard-control/register-default-data-sources/olap-data-source)
-- [Excel data source](https://docs.devexpress.com/Dashboard/401407/web-dashboard/aspnet-web-forms-dashboard-control/register-default-data-sources/excel-data-source)
-- [Object data source](https://docs.devexpress.com/Dashboard/401410/web-dashboard/aspnet-web-forms-dashboard-control/register-default-data-sources/object-data-source)
-- [Entity Framework data source](https://docs.devexpress.com/Dashboard/401406/web-dashboard/aspnet-web-forms-dashboard-control/register-default-data-sources/entity-framework-data-source)
-- [Extract data source](https://docs.devexpress.com/Dashboard/401408/web-dashboard/aspnet-web-forms-dashboard-control/register-default-data-sources/extract-data-source)
-- [JSON data source](https://docs.devexpress.com/Dashboard/401408/web-dashboard/aspnet-web-forms-dashboard-control/register-default-data-sources/extract-data-source)
-- [XPO data source](https://docs.devexpress.com/Dashboard/401412/web-dashboard/aspnet-web-forms-dashboard-control/register-default-data-sources/xpo-data-source)
-
 The [ASPxDashboard.SetDataSourceStorage](https://docs.devexpress.com/Dashboard/DevExpress.DashboardWeb.ASPxDashboard.SetDataSourceStorage(DevExpress.DashboardWeb.IDataSourceStorage)) method call registers the added data sources in data source storage.
+
+The [ASPxDashboard.ConfigureDataConnection](https://docs.devexpress.com/Dashboard/DevExpress.DashboardWeb.ASPxDashboard.ConfigureDataConnection) event is handled to customize connection parameters before the Web Dashboard connects to a data store (database, OLAP cube, etc.).
 
 <!-- default file list -->
 ## Files to Look At
