@@ -18,10 +18,10 @@ namespace WebFormsDashboardDataSources.Pages {
             // Uncomment this string to allow end users to create new data sources based on predefined connection strings.
             //ASPxDashboardEf.SetConnectionStringsProvider(new DevExpress.DataAccess.Web.ConfigFileConnectionStringsProvider());
 
-            // Creates data source storage.
+            // Create data source storage.
             DataSourceInMemoryStorage dataSourceStorage = new DataSourceInMemoryStorage();
 
-            // Registers an Entity Framework data source.
+            // Register an Entity Framework data source.
             DashboardEFDataSource efDataSource = new DashboardEFDataSource("EF Core Data Source");
             efDataSource.ConnectionParameters = new EFConnectionParameters(typeof(OrdersContext));
             dataSourceStorage.RegisterDataSource("efDataSource", efDataSource.SaveToXml());

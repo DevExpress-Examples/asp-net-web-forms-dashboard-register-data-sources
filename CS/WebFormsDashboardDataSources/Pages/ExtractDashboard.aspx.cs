@@ -12,10 +12,10 @@ namespace WebFormsDashboardDataSources.Pages {
             // Uncomment this string to allow end users to create new data sources based on predefined connection strings.
             //ASPxDashboardExtract.SetConnectionStringsProvider(new DevExpress.DataAccess.Web.ConfigFileConnectionStringsProvider());
 
-            // Creates data source storage.
+            // Create data source storage.
             DataSourceInMemoryStorage dataSourceStorage = new DataSourceInMemoryStorage();
 
-            // Registers an Extract data source.
+            // Register an Extract data source.
             DashboardExtractDataSource extractDataSource = new DashboardExtractDataSource("Extract Data Source");
             extractDataSource.ConnectionName = "extractDataConnection";
             dataSourceStorage.RegisterDataSource("extractDataSource ", extractDataSource.SaveToXml());
