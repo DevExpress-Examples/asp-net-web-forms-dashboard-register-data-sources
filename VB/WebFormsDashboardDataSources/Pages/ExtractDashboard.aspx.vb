@@ -13,9 +13,9 @@ Namespace WebFormsDashboardDataSources.Pages
             ASPxDashboardExtract.SetDashboardStorage(dashboardFileStorage)
             ' Uncomment this string to allow end users to create new data sources based on predefined connection strings.
             'ASPxDashboardExtract.SetConnectionStringsProvider(new DevExpress.DataAccess.Web.ConfigFileConnectionStringsProvider());
-            ' Creates data source storage.
+            ' Create data source storage.
             Dim dataSourceStorage As DataSourceInMemoryStorage = New DataSourceInMemoryStorage()
-            ' Registers an Extract data source.
+            ' Register an Extract data source.
             Dim extractDataSource As DashboardExtractDataSource = New DashboardExtractDataSource("Extract Data Source")
             extractDataSource.ConnectionName = "extractDataConnection"
             dataSourceStorage.RegisterDataSource("extractDataSource ", extractDataSource.SaveToXml())
