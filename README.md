@@ -31,7 +31,7 @@ The [ASPxDashboard.ConfigureDataConnection](https://docs.devexpress.com/Dashboar
 
 - [Register Default Data Sources](https://docs.devexpress.com/Dashboard/116300/web-dashboard/aspnet-web-forms-dashboard-control/register-default-data-sources)
 
-## More Exmples
+## More Examples
 
 - [How to Register Data Sources for ASP.NET Core Dashboard Control](https://github.com/DevExpress-Examples/asp-net-core-dashboard-register-data-sources)
 - [How to Register Data Sources for ASP.NET MVC Dashboard Extension](https://github.com/DevExpress-Examples/asp-net-mvc-dashboard-register-data-sources)
