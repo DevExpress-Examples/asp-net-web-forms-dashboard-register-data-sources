@@ -2,17 +2,27 @@ Imports System
 Imports System.Collections.Generic
 
 Namespace WebFormsDashboardDataSources
+
     Public Class Invoices
-    
+
         Private Shared rnd As Random = New Random()
+
         Public Property Country As String
+
         Public Property City As String
+
         Public Property ProductName As String
+
         Public Property OrderDate As Date
+
         Public Property Quantity As Integer
+
         Public Property Discount As Double
+
         Public Property ExtendedPrice As Double
+
         Public Property Freigth As Double
+
         Public Property UnitPrice As Double
 
         Public Shared Function CreateData() As List(Of Invoices)
