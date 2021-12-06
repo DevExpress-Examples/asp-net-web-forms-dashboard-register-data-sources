@@ -11,7 +11,7 @@ Namespace WebFormsDashboardDataSources.Pages
         Protected Sub Page_Load(ByVal sender As Object, ByVal e As EventArgs)
             Dim dashboardFileStorage As DashboardFileStorage = New DashboardFileStorage("~/App_Data/Dashboards")
             ASPxDashboardSql.SetDashboardStorage(dashboardFileStorage)
-            ' Uncomment this string to allow end users to create new data sources based on predefined connection strings.
+            ' Uncomment the next line to allow users to create new data sources based on predefined connection strings.
             'ASPxDashboardSql.SetConnectionStringsProvider(new DevExpress.DataAccess.Web.ConfigFileConnectionStringsProvider());
             ' Create data source storage.
             Dim dataSourceStorage As DataSourceInMemoryStorage = New DataSourceInMemoryStorage()
