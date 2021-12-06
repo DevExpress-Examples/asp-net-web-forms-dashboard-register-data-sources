@@ -10,7 +10,7 @@ namespace WebFormsDashboardDataSources.Pages {
             DashboardFileStorage dashboardFileStorage = new DashboardFileStorage("~/App_Data/Dashboards");
             ASPxDashboardJson.SetDashboardStorage(dashboardFileStorage);
 
-            // Uncomment this string to allow end users to create new data sources based on predefined connection strings.
+            // Uncomment the next line to allow users to create new data sources based on predefined connection strings.
             //ASPxDashboardJson.SetConnectionStringsProvider(new DevExpress.DataAccess.Web.ConfigFileConnectionStringsProvider());
 
             // Create data source storage.
