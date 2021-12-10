@@ -11,7 +11,7 @@ namespace WebFormsDashboardDataSources.Pages {
             // Uncomment the next line to allow users to create new data sources based on predefined connection strings.
             //ASPxDashboardObjectDS.SetConnectionStringsProvider(new DevExpress.DataAccess.Web.ConfigFileConnectionStringsProvider());
 
-            // Create data source storage.
+            // Create a data source storage.
             DataSourceInMemoryStorage dataSourceStorage = new DataSourceInMemoryStorage();
 
             // Register an Object data source.
