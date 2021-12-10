@@ -14,7 +14,7 @@ Namespace WebFormsDashboardDataSources.Pages
             ASPxDashboardJson.SetDashboardStorage(dashboardFileStorage)
             ' Uncomment the next line to allow users to create new data sources based on predefined connection strings.
             'ASPxDashboardJson.SetConnectionStringsProvider(new DevExpress.DataAccess.Web.ConfigFileConnectionStringsProvider());
-            ' Create data source storage.
+            ' Create a data source storage.
             Dim dataSourceStorage As DataSourceInMemoryStorage = New DataSourceInMemoryStorage()
             ' Register a JSON data source from URL.
             Dim jsonDataSourceUrl As DashboardJsonDataSource = New DashboardJsonDataSource("JSON Data Source (URL)")

@@ -14,7 +14,7 @@ Namespace WebFormsDashboardDataSources.Pages
             ASPxDashboardExcel.SetDashboardStorage(dashboardFileStorage)
             ' Uncomment the next line to allow users to create new data sources based on predefined connection strings.
             'ASPxDashboardExcel.SetConnectionStringsProvider(new DevExpress.DataAccess.Web.ConfigFileConnectionStringsProvider());
-            ' Create data source storage.
+            ' Create a data source storage.
             Dim dataSourceStorage As DataSourceInMemoryStorage = New DataSourceInMemoryStorage()
             ' Register an Excel data source.
             Dim excelDataSource As DashboardExcelDataSource = New DashboardExcelDataSource("Excel Data Source")
