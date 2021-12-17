@@ -13,7 +13,7 @@ Namespace WebFormsDashboardDataSources.Pages
             ASPxDashboardSql.SetDashboardStorage(dashboardFileStorage)
             ' Uncomment the next line to allow users to create new data sources based on predefined connection strings.
             'ASPxDashboardSql.SetConnectionStringsProvider(new DevExpress.DataAccess.Web.ConfigFileConnectionStringsProvider());
-            ' Create data source storage.
+            ' Create a data source storage.
             Dim dataSourceStorage As DataSourceInMemoryStorage = New DataSourceInMemoryStorage()
             ' Register an SQL data source.
             Dim sqlDataSource As DashboardSqlDataSource = New DashboardSqlDataSource("SQL Data Source", "NWindConnectionString")

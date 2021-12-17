@@ -14,7 +14,7 @@ Namespace WebFormsDashboardDataSources.Pages
             ASPxDashboardJson.SetDashboardStorage(dashboardFileStorage)
             ' Uncomment the next line to allow users to create new data sources based on predefined connection strings.
             'ASPxDashboardJson.SetConnectionStringsProvider(new DevExpress.DataAccess.Web.ConfigFileConnectionStringsProvider());
-            ' Create data source storage.
+            ' Create a data source storage.
             Dim dataSourceStorage As DataSourceInMemoryStorage = New DataSourceInMemoryStorage()
             ' Register a JSON data source from URL.
             Dim jsonDataSourceUrl As DashboardJsonDataSource = New DashboardJsonDataSource("JSON Data Source (URL)")
@@ -26,7 +26,7 @@ Namespace WebFormsDashboardDataSources.Pages
             jsonDataSourceFile.ConnectionName = "jsonConnection"
             jsonDataSourceFile.RootElement = "Customers"
             dataSourceStorage.RegisterDataSource("jsonDataSourceFile", jsonDataSourceFile.SaveToXml())
-            ' Register a JSON data source from JSON string.
+            ' Register a JSON data source from a JSON string.
             Dim jsonDataSourceString As DashboardJsonDataSource = New DashboardJsonDataSource("JSON Data Source (String)")
             Dim json As String = "{""Customers"":[{""Id"":""ALFKI"",""CompanyName"":""Alfreds Futterkiste"",""ContactName"":""Maria Anders"",""ContactTitle"":""Sales Representative"",""Address"":""Obere Str. 57"",""City"":""Berlin"",""PostalCode"":""12209"",""Country"":""Germany"",""Phone"":""030-0074321"",""Fax"":""030-0076545""}],""ResponseStatus"":{}}"
             jsonDataSourceString.JsonSource = New CustomJsonSource(json)

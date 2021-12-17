@@ -13,7 +13,7 @@ Namespace WebFormsDashboardDataSources.Pages
             ASPxDashboardOlap.SetDashboardStorage(dashboardFileStorage)
             ' Uncomment the next line to allow users to create new data sources based on predefined connection strings.
             'ASPxDashboardOlap.SetConnectionStringsProvider(new DevExpress.DataAccess.Web.ConfigFileConnectionStringsProvider());
-            ' Create data source storage.
+            ' Create a data source storage.
             Dim dataSourceStorage As DataSourceInMemoryStorage = New DataSourceInMemoryStorage()
             ' Register an OLAP data source.
             Dim olapDataSource As DashboardOlapDataSource = New DashboardOlapDataSource("OLAP Data Source", "olapConnection")
