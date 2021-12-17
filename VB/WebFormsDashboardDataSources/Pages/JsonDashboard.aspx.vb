@@ -16,7 +16,7 @@ Namespace WebFormsDashboardDataSources.Pages
             'ASPxDashboardJson.SetConnectionStringsProvider(new DevExpress.DataAccess.Web.ConfigFileConnectionStringsProvider());
             ' Create a data source storage.
             Dim dataSourceStorage As DataSourceInMemoryStorage = New DataSourceInMemoryStorage()
-            ' Register a JSON data source from URL.
+            ' Register a JSON data source from a URL.
             Dim jsonDataSourceUrl As DashboardJsonDataSource = New DashboardJsonDataSource("JSON Data Source (URL)")
             jsonDataSourceUrl.ConnectionName = "jsonUrlConnection"
             jsonDataSourceUrl.RootElement = "Employee"
