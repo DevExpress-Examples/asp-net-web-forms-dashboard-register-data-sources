@@ -18,18 +18,17 @@ Namespace WebFormsDashboardDataSources.Pages
             Dim dataSourceStorage As DataSourceInMemoryStorage = New DataSourceInMemoryStorage()
             ' Register a JSON data source from URL.
             Dim jsonDataSourceUrl As DashboardJsonDataSource = New DashboardJsonDataSource("JSON Data Source (URL)")
-            jsonDataSourceUrl.JsonSource = New UriJsonSource(New Uri("https://raw.githubusercontent.com/DevExpress-Examples/DataSources/master/JSON/support.json"))
+            jsonDataSourceUrl.ConnectionName = "jsonUrlConnection"
             jsonDataSourceUrl.RootElement = "Employee"
             dataSourceStorage.RegisterDataSource("jsonDataSourceUrl", jsonDataSourceUrl.SaveToXml())
             ' Register a JSON data source from a JSON file.
             Dim jsonDataSourceFile As DashboardJsonDataSource = New DashboardJsonDataSource("JSON Data Source (File)")
-            jsonDataSourceFile.ConnectionName = "jsonConnection"
+            jsonDataSourceFile.ConnectionName = "jsonFileConnection"
             jsonDataSourceFile.RootElement = "Customers"
             dataSourceStorage.RegisterDataSource("jsonDataSourceFile", jsonDataSourceFile.SaveToXml())
             ' Register a JSON data source from a JSON string.
             Dim jsonDataSourceString As DashboardJsonDataSource = New DashboardJsonDataSource("JSON Data Source (String)")
-            Dim json As String = "{""Customers"":[{""Id"":""ALFKI"",""CompanyName"":""Alfreds Futterkiste"",""ContactName"":""Maria Anders"",""ContactTitle"":""Sales Representative"",""Address"":""Obere Str. 57"",""City"":""Berlin"",""PostalCode"":""12209"",""Country"":""Germany"",""Phone"":""030-0074321"",""Fax"":""030-0076545""}],""ResponseStatus"":{}}"
-            jsonDataSourceString.JsonSource = New CustomJsonSource(json)
+            jsonDataSourceString.ConnectionName = "jsonStringConnection"
             jsonDataSourceString.RootElement = "Customers"
             dataSourceStorage.RegisterDataSource("jsonDataSourceString", jsonDataSourceString.SaveToXml())
             ' Set the configured data source storage.
@@ -39,10 +38,23 @@ Namespace WebFormsDashboardDataSources.Pages
         End Sub
 
         Private Sub ASPxDashboardJson_ConfigureDataConnection(ByVal sender As Object, ByVal e As ConfigureDataConnectionWebEventArgs)
-            If Equals(e.ConnectionName, "jsonConnection") Then
+            If Equals(e.ConnectionName, "jsonUrlConnection") Then
+                Dim jsonParams As JsonSourceConnectionParameters = New JsonSourceConnectionParameters()
+                jsonParams.JsonSource = New UriJsonSource(New Uri("https://raw.githubusercontent.com/DevExpress-Examples/DataSources/master/JSON/support.json"))
+                e.ConnectionParameters = jsonParams
+            End If
+
+            If Equals(e.ConnectionName, "jsonFileConnection") Then
                 Dim fileUri As Uri = New Uri(HostingEnvironment.MapPath("~/App_Data/customers.json"), UriKind.RelativeOrAbsolute)
                 Dim jsonParams As JsonSourceConnectionParameters = New JsonSourceConnectionParameters()
                 jsonParams.JsonSource = New UriJsonSource(fileUri)
+                e.ConnectionParameters = jsonParams
+            End If
+
+            If Equals(e.ConnectionName, "jsonStringConnection") Then
+                Dim json As String = "{""Customers"":[{""Id"":""ALFKI"",""CompanyName"":""Alfreds Futterkiste"",""ContactName"":""Maria Anders"",""ContactTitle"":""Sales Representative"",""Address"":""Obere Str. 57"",""City"":""Berlin"",""PostalCode"":""12209"",""Country"":""Germany"",""Phone"":""030-0074321"",""Fax"":""030-0076545""}],""ResponseStatus"":{}}"
+                Dim jsonParams As JsonSourceConnectionParameters = New JsonSourceConnectionParameters()
+                jsonParams.JsonSource = New CustomJsonSource(json)
                 e.ConnectionParameters = jsonParams
             End If
         End Sub
