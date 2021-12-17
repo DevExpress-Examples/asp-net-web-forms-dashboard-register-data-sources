@@ -16,7 +16,7 @@ namespace WebFormsDashboardDataSources.Pages {
             // Create a data source storage.
             DataSourceInMemoryStorage dataSourceStorage = new DataSourceInMemoryStorage();
 
-            // Register a JSON data source from URL.
+            // Register a JSON data source from a URL.
             DashboardJsonDataSource jsonDataSourceUrl = new DashboardJsonDataSource("JSON Data Source (URL)");
             jsonDataSourceUrl.ConnectionName = "jsonUrlConnection";
             jsonDataSourceUrl.RootElement = "Employee";
