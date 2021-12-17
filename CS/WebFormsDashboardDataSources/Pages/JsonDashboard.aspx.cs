@@ -28,7 +28,7 @@ namespace WebFormsDashboardDataSources.Pages {
             jsonDataSourceFile.RootElement = "Customers";
             dataSourceStorage.RegisterDataSource("jsonDataSourceFile", jsonDataSourceFile.SaveToXml());
 
-            // Register a JSON data source from JSON string.
+            // Register a JSON data source from a JSON string.
             DashboardJsonDataSource jsonDataSourceString = new DashboardJsonDataSource("JSON Data Source (String)");
             string json = "{\"Customers\":[{\"Id\":\"ALFKI\",\"CompanyName\":\"Alfreds Futterkiste\",\"ContactName\":\"Maria Anders\",\"ContactTitle\":\"Sales Representative\",\"Address\":\"Obere Str. 57\",\"City\":\"Berlin\",\"PostalCode\":\"12209\",\"Country\":\"Germany\",\"Phone\":\"030-0074321\",\"Fax\":\"030-0076545\"}],\"ResponseStatus\":{}}";
             jsonDataSourceString.JsonSource = new CustomJsonSource(json);
