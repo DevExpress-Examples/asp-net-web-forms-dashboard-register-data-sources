@@ -2,7 +2,7 @@
 <Dashboard>
   <Title Text="EF Core Data Source" />
   <DataSources>
-    <EFDataSource Name="EF Data Source" Source="WebFormsDashboardDataSources.OrdersContext, WebFormsDashboardDataSources, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" ComponentName="eFDataSource1" />
+    <EFDataSource Name="EF Core Data Source" Source="WebFormsDashboardDataSources.OrdersContext, WebFormsDashboardDataSources, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" ComponentName="eFDataSource1" />
   </DataSources>
   <Items>
     <Grid ComponentName="gridDashboardItem1" Name="Grid 1" DataSource="eFDataSource1" DataMember="OrderDetails">
