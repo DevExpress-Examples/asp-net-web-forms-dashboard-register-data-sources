@@ -16,7 +16,7 @@ Namespace WebFormsDashboardDataSources.Pages
             ' Create a data source storage.
             Dim dataSourceStorage As DataSourceInMemoryStorage = New DataSourceInMemoryStorage()
             ' Register an Entity Framework data source.
-            Dim efDataSource As DashboardEFDataSource = New DashboardEFDataSource("EF Core Data Source")
+            Dim efDataSource As DashboardEFDataSource = New DashboardEFDataSource("EF Data Source")
             efDataSource.ConnectionParameters = New EFConnectionParameters(GetType(OrdersContext))
             dataSourceStorage.RegisterDataSource("efDataSource", efDataSource.SaveToXml())
             ' Set the configured data source storage.
