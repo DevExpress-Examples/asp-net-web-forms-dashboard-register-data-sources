@@ -17,7 +17,7 @@ namespace WebFormsDashboardDataSources.Pages {
             DataSourceInMemoryStorage dataSourceStorage = new DataSourceInMemoryStorage();
 
             // Register an Entity Framework data source.
-            DashboardEFDataSource efDataSource = new DashboardEFDataSource("EF Data Source");
+            DashboardEFDataSource efDataSource = new DashboardEFDataSource("EF Core Data Source");
             efDataSource.ConnectionParameters = new EFConnectionParameters(typeof(OrdersContext));
             dataSourceStorage.RegisterDataSource("efDataSource", efDataSource.SaveToXml());
 
