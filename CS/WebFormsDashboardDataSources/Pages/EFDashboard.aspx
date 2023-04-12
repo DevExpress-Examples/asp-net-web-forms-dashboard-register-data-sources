@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EFDashboard.aspx.cs" Inherits="WebFormsDashboardDataSources.Pages.EFDashboard" %>
-<%@ Register Assembly="DevExpress.Dashboard.v20.2.Web.WebForms, Version=20.2.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.DashboardWeb" TagPrefix="dx" %>
+<%@ Register Assembly="DevExpress.Dashboard.v20.2.Web.WebForms, Version=20.2.13.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.DashboardWeb" TagPrefix="dx" %>
 
 <!DOCTYPE html>
 
