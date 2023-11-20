@@ -4,7 +4,7 @@
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
 
-# Dashboard for Web Forms - How to Register Data Sources
+# BI Dashboard for Web Forms - How to Register Data Sources
 
 This example displays how to supply a Web Dashboard with a set of predefined data sources available for users.
 
@@ -14,8 +14,7 @@ The [ASPxDashboard.SetDataSourceStorage](https://docs.devexpress.com/Dashboard/D
 
 The [ASPxDashboard.ConfigureDataConnection](https://docs.devexpress.com/Dashboard/DevExpress.DashboardWeb.ASPxDashboard.ConfigureDataConnection) event is handled to customize connection parameters before the Web Dashboard connects to a data store (database, OLAP cube, etc.).
 
-<!-- default file list -->
-## Files to Look At
+## Files to Review
 
 * [EFDashboard.aspx.cs](./CS/WebFormsDashboardDataSources/Pages/EFDashboard.aspx.cs) (VB: [EFDashboard.aspx.vb](./VB/WebFormsDashboardDataSources/Pages/EFDashboard.aspx.vb))
 * [ExcelDashboard.aspx.cs](./CS/WebFormsDashboardDataSources/Pages/ExcelDashboard.aspx.cs) (VB: [ExcelDashboard.aspx.vb](./VB/WebFormsDashboardDataSources/Pages/ExcelDashboard.aspx.vb))
@@ -25,7 +24,6 @@ The [ASPxDashboard.ConfigureDataConnection](https://docs.devexpress.com/Dashboar
 * [OlapDashboard.aspx.cs](./CS/WebFormsDashboardDataSources/Pages/OlapDashboard.aspx.cs) (VB: [OlapDashboard.aspx.vb](./VB/WebFormsDashboardDataSources/Pages/OlapDashboard.aspx.vb))
 * [SqlDashboard.aspx.cs](./CS/WebFormsDashboardDataSources/Pages/SqlDashboard.aspx.cs) (VB: [SqlDashboard.aspx.vb](./VB/WebFormsDashboardDataSources/Pages/SqlDashboard.aspx.vb))
 * [XpoDashboard.aspx.cs](./CS/WebFormsDashboardDataSources/Pages/XpoDashboard.aspx.cs) (VB: [XpoDashboard.aspx.vb](./VB/WebFormsDashboardDataSources/Pages/XpoDashboard.aspx.vb))
-<!-- default file list end-->
 
 ## Documentation
 
