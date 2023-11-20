@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="OlapDashboard.aspx.cs" Inherits="WebFormsDashboardDataSources.Pages.OlapDashboard" %>
+<%@ Page Language="VB" AutoEventWireup="true" CodeBehind="OlapDashboard.aspx.vb" Inherits="WebFormsDashboardDataSources.Pages.OlapDashboard" %>
 <%@ Register Assembly="DevExpress.Dashboard.v22.1.Web.WebForms, Version=22.1.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.DashboardWeb" TagPrefix="dx" %>
 
 <!DOCTYPE html>
