@@ -1,5 +1,5 @@
 <%@ Page Language="VB" AutoEventWireup="true" CodeBehind="XpoDashboard.aspx.vb" Inherits="WebFormsDashboardDataSources.Pages.XpoDashboard" %>
-<%@ Register Assembly="DevExpress.Dashboard.v22.1.Web.WebForms, Version=22.1.11.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.DashboardWeb" TagPrefix="dx" %>
+<%@ Register Assembly="DevExpress.Dashboard.v22.1.Web.WebForms, Version=22.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.DashboardWeb" TagPrefix="dx" %>
 
 <!DOCTYPE html>
 
