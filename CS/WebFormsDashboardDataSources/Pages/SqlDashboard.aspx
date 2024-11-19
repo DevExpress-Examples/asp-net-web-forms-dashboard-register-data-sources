@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SqlDashboard.aspx.cs" Inherits="WebFormsDashboardDataSources.Pages.SqlDashboard" %>
-<%@ Register Assembly="DevExpress.Dashboard.v24.2.Web.WebForms, Version=24.2.1.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.DashboardWeb" TagPrefix="dx" %>
+<%@ Register Assembly="DevExpress.Dashboard.v24.2.Web.WebForms, Version=24.2.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.DashboardWeb" TagPrefix="dx" %>
 
 <!DOCTYPE html>
 
