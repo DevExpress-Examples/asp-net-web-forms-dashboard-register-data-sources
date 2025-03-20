@@ -1,5 +1,5 @@
 <%@ Page Language="VB" AutoEventWireup="true" CodeBehind="JsonDashboard.aspx.vb" Inherits="WebFormsDashboardDataSources.Pages.JsonDashboard" %>
-<%@ Register Assembly="DevExpress.Dashboard.v24.2.Web.WebForms, Version=24.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.DashboardWeb" TagPrefix="dx" %>
+<%@ Register Assembly="DevExpress.Dashboard.v24.2.Web.WebForms, Version=24.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.DashboardWeb" TagPrefix="dx" %>
 
 <!DOCTYPE html>
 
